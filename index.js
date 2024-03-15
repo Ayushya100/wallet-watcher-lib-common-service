@@ -23,7 +23,7 @@ import {
     metadataModel,
     logsModel
 } from './src/models/index.js';
-import { verifyToken } from './src/middlewares/index.js';
+import { verifyToken, errorHandler } from './src/middlewares/index.js';
 
 export {
     ApiError,
@@ -46,5 +46,6 @@ export {
     InvDetailsModel,
     metadataModel,
     logsModel,
-    verifyToken
+    verifyToken,
+    errorHandler
 };
