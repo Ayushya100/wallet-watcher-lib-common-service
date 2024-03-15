@@ -1,7 +1,8 @@
 'use strict';
 
-import { ApiError } from './src/utils/index.js';
+import { ApiError, ApiResponse } from './src/utils/index.js';
 
 export {
-    ApiError
+    ApiError,
+    ApiResponse
 };
