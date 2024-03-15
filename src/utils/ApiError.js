@@ -1,5 +1,7 @@
 'use strict';
 
+import { responseCodes, responseMessage } from '../assets/response/response-codes.js';
+
 class ApiError extends Error {
     constructor(
         statusCode,
@@ -24,4 +26,18 @@ class ApiError extends Error {
     }
 };
 
-export default ApiError;
+const buildApiError = (err) => {
+    return new ApiError(
+        responseCodes[err.resType] || 500,
+        responseMessage[err.resType],
+        err.resType,
+        err.resMsg,
+        err.stack,
+        err.data
+    );
+}
+
+export {
+    ApiError,
+    buildApiError
+};
