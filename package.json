@@ -1,0 +1,26 @@
+{
+  "name": "lib-common-service",
+  "version": "1.0.0",
+  "description": "Wallet watcher helper library for backend services",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayushya100/wallet-watcher-lib-common-service.git"
+  },
+  "keywords": [
+    "Javascript",
+    "nodejs",
+    "express",
+    "wallet-watcher"
+  ],
+  "author": "Ayushya Jaiswal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayushya100/wallet-watcher-lib-common-service/issues"
+  },
+  "homepage": "https://github.com/Ayushya100/wallet-watcher-lib-common-service#readme"
+}
