@@ -1,5 +1,7 @@
 'use strict';
 
+import { responseCodes, responseMessage } from '../assets/response/response-codes.js';
+
 class ApiResponse {
     constructor(
         statusCode,
@@ -13,4 +15,15 @@ class ApiResponse {
     }
 };
 
-export default ApiResponse;
+const buildApiResponse = (res) => {
+    return new ApiResponse(
+        responseCodes[res.resType],
+        res.data,
+        res.resMsg + ' - ' + responseMessage[res.resType]
+    );
+}
+
+export {
+    ApiResponse,
+    buildApiResponse
+};
