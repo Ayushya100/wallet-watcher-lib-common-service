@@ -9,7 +9,19 @@ import {
     logger
 } from './src/utils/index.js';
 import {
-    userModel
+    userModel,
+    cardInfoModel,
+    investmentAccInfoModel,
+    UserWalletCategoryModel,
+    CrdExpDetailsModel,
+    DashboardSettingsModels,
+    UserDashboardModel,
+    ExpDetailsModel,
+    UserFinanceModel,
+    IncDetailsModel,
+    InvDetailsModel,
+    metadataModel,
+    logsModel
 } from './src/models/index.js';
 
 export {
@@ -20,5 +32,17 @@ export {
     buildApiError,
     buildApiResponse,
     logger,
-    userModel
+    userModel,
+    cardInfoModel,
+    investmentAccInfoModel,
+    UserWalletCategoryModel,
+    CrdExpDetailsModel,
+    DashboardSettingsModels,
+    UserDashboardModel,
+    ExpDetailsModel,
+    UserFinanceModel,
+    IncDetailsModel,
+    InvDetailsModel,
+    metadataModel,
+    logsModel,
 };
