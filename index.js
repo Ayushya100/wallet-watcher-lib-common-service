@@ -1,5 +1,11 @@
 'use strict';
 
+import dotenv from 'dotenv';
+
+dotenv.config({
+    path: './.env'
+});
+
 import { responseCodes, responseMessage } from './src/assets/response/response-codes.js';
 import {
     ApiError,
@@ -24,6 +30,7 @@ import {
     logsModel
 } from './src/models/index.js';
 import { verifyToken, errorHandler } from './src/middlewares/index.js';
+import dbConnection from './src/db/dbConnection.js';
 
 export {
     ApiError,
@@ -47,5 +54,6 @@ export {
     metadataModel,
     logsModel,
     verifyToken,
-    errorHandler
+    errorHandler,
+    dbConnection
 };

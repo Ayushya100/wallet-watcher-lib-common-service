@@ -1,20 +1,21 @@
 'use strict';
 
 import winston from 'winston';
-import { combine, timestamp, prettyPrint, colorize, label } from winston.format;
 
 const buildTransporter = () => {
-    return winston.transports.Console({
-        format: winston.format.simple()
-    });
+    return [
+        new winston.transports.Console({
+            format: winston.format.simple()
+        })
+    ];
 }
 
 const buildFormat = (msg) => {
-    return combine(
-        timestamp(),
-        prettyPrint(),
-        colorize({ all: true }),
-        label({ label: msg })
+    return winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.prettyPrint(),
+        winston.format.colorize({ all: true }),
+        winston.format.label({ label: msg })
     );
 }
 
@@ -23,7 +24,7 @@ const logger = (msg = '') => {
     const transport = buildTransporter();
 
     return winston.createLogger({
-        level: 'debug',
+        level: 'info',
         format: format,
         transports: transport
     });
