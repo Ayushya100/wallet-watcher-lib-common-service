@@ -1,29 +1,29 @@
-import userModel from './users.models.js';
-import cardInfoModel from './cardInfo.models.js';
-import investmentAccInfoModel from './investmentAccInfo.models.js';
+import UserModel from './users.models.js';
+import CardInfoModel from './cardInfo.models.js';
+import InvestmentAccInfoModel from './investmentAccInfo.models.js';
 import UserWalletCategoryModel from './userWalletCategory.models.js';
 import CrdExpDetailsModel from './userCrdExpDetails.models.js';
-import DashboardSettingsModels from './dashboardSettings.models.js';
+import DashboardSettingsModel from './dashboardSettings.models.js';
 import UserDashboardModel from './userDashboard.models.js';
 import ExpDetailsModel from './userExpDetails.models.js';
 import UserFinanceModel from './userFinance.models.js';
 import IncDetailsModel from './userIncDetails.models.js';
 import InvDetailsModel from './userInvDetails.models.js';
-import metadataModel from './metadata.models.js';
-import logsModel from './logs.models.js';
+import MetadataModel from './metadata.models.js';
+import LogsModel from './logs.models.js';
 
 export {
-    userModel,
-    cardInfoModel,
-    investmentAccInfoModel,
+    UserModel,
+    CardInfoModel,
+    InvestmentAccInfoModel,
     UserWalletCategoryModel,
     CrdExpDetailsModel,
-    DashboardSettingsModels,
+    DashboardSettingsModel,
     UserDashboardModel,
     ExpDetailsModel,
     UserFinanceModel,
     IncDetailsModel,
     InvDetailsModel,
-    metadataModel,
-    logsModel
+    MetadataModel,
+    LogsModel
 };
