@@ -12,7 +12,8 @@ import {
     ApiResponse,
     buildApiError,
     buildApiResponse,
-    logger
+    logger,
+    createNewLog
 } from './src/utils/index.js';
 import {
     UserModel,
@@ -29,7 +30,11 @@ import {
     MetadataModel,
     LogsModel
 } from './src/models/index.js';
-import { verifyToken, errorHandler } from './src/middlewares/index.js';
+import {
+    verifyToken,
+    errorHandler,
+    userContext
+} from './src/middlewares/index.js';
 import dbConnection from './src/db/dbConnection.js';
 
 export {
@@ -40,6 +45,7 @@ export {
     buildApiError,
     buildApiResponse,
     logger,
+    createNewLog,
     UserModel,
     CardInfoModel,
     InvestmentAccInfoModel,
@@ -55,5 +61,6 @@ export {
     LogsModel,
     verifyToken,
     errorHandler,
+    userContext,
     dbConnection
 };
