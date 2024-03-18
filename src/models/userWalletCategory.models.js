@@ -1,5 +1,7 @@
 'use strict';
 
+import mongoose from 'mongoose';
+
 // User Wallet Category Schema
 const userWalletCategorySchema = new mongoose.Schema(
     {

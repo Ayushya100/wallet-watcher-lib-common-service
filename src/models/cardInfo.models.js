@@ -1,5 +1,7 @@
 'use strict';
 
+import mongoose from 'mongoose';
+
 // Card Info Schema
 const cardInfoSchema = new mongoose.Schema(
     {

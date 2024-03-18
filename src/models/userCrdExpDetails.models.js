@@ -1,5 +1,7 @@
 'use strict';
 
+import mongoose from 'mongoose';
+
 // User Credit Card Expense Details Schema
 const crdExpDetailsSchema = new mongoose.Schema(
     {
