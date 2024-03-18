@@ -1,5 +1,7 @@
 'use strict';
 
+import mongoose from 'mongoose';
+
 // Metadata Schema
 const metadataSchema = new mongoose.Schema(
     {

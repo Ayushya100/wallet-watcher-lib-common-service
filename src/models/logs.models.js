@@ -1,5 +1,7 @@
 'use strict';
 
+import mongoose from 'mongoose';
+
 // Logs Schema
 const logSchema = new mongoose.Schema(
     {

@@ -1,5 +1,7 @@
 'use strict';
 
+import mongoose from 'mongoose';
+
 // User dashboard Schema
 const userDashboardSchema = new mongoose.Schema(
     {

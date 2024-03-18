@@ -1,5 +1,7 @@
 'use strict';
 
+import mongoose from 'mongoose';
+
 // Investment Account Info Schema
 const investmentAccInfoSchema = new mongoose.Schema(
     {
