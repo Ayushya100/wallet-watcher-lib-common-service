@@ -1,5 +1,6 @@
 'use strict';
 
+import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import { SALT_ROUNDS } from '../../constants.js';
 

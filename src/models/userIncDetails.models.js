@@ -1,5 +1,7 @@
 'use strict';
 
+import mongoose from 'mongoose';
+
 // User Income Details Schema
 const userIncDetailSchema = new mongoose.Schema(
     {

@@ -1,5 +1,7 @@
 'use strict';
 
+import mongoose from 'mongoose';
+
 // User Expenditure Details Schema
 const expDetailSchema = new mongoose.Schema(
     {
