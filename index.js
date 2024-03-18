@@ -12,24 +12,29 @@ import {
     ApiResponse,
     buildApiError,
     buildApiResponse,
-    logger
+    logger,
+    createNewLog
 } from './src/utils/index.js';
 import {
-    userModel,
-    cardInfoModel,
-    investmentAccInfoModel,
+    UserModel,
+    CardInfoModel,
+    InvestmentAccInfoModel,
     UserWalletCategoryModel,
     CrdExpDetailsModel,
-    DashboardSettingsModels,
+    DashboardSettingsModel,
     UserDashboardModel,
     ExpDetailsModel,
     UserFinanceModel,
     IncDetailsModel,
     InvDetailsModel,
-    metadataModel,
-    logsModel
+    MetadataModel,
+    LogsModel
 } from './src/models/index.js';
-import { verifyToken, errorHandler } from './src/middlewares/index.js';
+import {
+    verifyToken,
+    errorHandler,
+    userContext
+} from './src/middlewares/index.js';
 import dbConnection from './src/db/dbConnection.js';
 
 export {
@@ -40,20 +45,22 @@ export {
     buildApiError,
     buildApiResponse,
     logger,
-    userModel,
-    cardInfoModel,
-    investmentAccInfoModel,
+    createNewLog,
+    UserModel,
+    CardInfoModel,
+    InvestmentAccInfoModel,
     UserWalletCategoryModel,
     CrdExpDetailsModel,
-    DashboardSettingsModels,
+    DashboardSettingsModel,
     UserDashboardModel,
     ExpDetailsModel,
     UserFinanceModel,
     IncDetailsModel,
     InvDetailsModel,
-    metadataModel,
-    logsModel,
+    MetadataModel,
+    LogsModel,
     verifyToken,
     errorHandler,
+    userContext,
     dbConnection
 };

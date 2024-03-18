@@ -29,7 +29,10 @@ const verifyToken = (tokenKey) => (req, res, next) => {
         next();
     } catch (err) {
         next({
-
+            resType: 'UNAUTHORIZED',
+            resMsg: 'UNAUTHORIZED ACCESS - TOKEN EXPIRED',
+            stack: err.stack,
+            isValid: false
         });
     }
 };
