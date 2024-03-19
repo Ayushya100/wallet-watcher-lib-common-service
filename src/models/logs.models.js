@@ -5,6 +5,10 @@ import mongoose from 'mongoose';
 // Logs Schema
 const logSchema = new mongoose.Schema(
     {
+        logSessionId: {
+            type: String,
+            required: true
+        },
         userId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
@@ -16,7 +20,7 @@ const logSchema = new mongoose.Schema(
         },
         level: {
             type: String,
-            enum: ['info', 'error'],
+            enum: ['info', 'debug', 'warn', 'error'],
             required: true
         },
         timeStamp: {

@@ -1,5 +1,6 @@
 'use strict';
 
+import { v4 as uuidv4 } from 'uuid';
 import { currentUserContext } from '../utils/index.js';
 
 const userContext = (req, res, next) => {
@@ -8,6 +9,7 @@ const userContext = (req, res, next) => {
     currentUserContext.userId = req.params?.userId || req.body?.userId;
     currentUserContext.headers = req.params;
     currentUserContext.body = req.body;
+    currentUserContext.logSessionId = 'LSI' + uuidv4();
     next();
 }
 
