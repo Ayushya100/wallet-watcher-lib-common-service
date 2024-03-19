@@ -22,6 +22,7 @@ const getCurrentDateTime = () => {
 
 const buildPayload = (source, msg, level, additionalInfo) => {
     const logPayload = {
+        logSessionId: currentUserContext.logSessionId,
         userId: currentUserContext.userId,
         message: msg,
         level: level,
@@ -41,6 +42,7 @@ const buildPayload = (source, msg, level, additionalInfo) => {
 
 const buildCustomPayload = (source, userId, msg, level, additionalInfo, headers, body) => {
     const logPayload = {
+        logSessionId: currentUserContext.logSessionId,
         userId: userId || currentUserContext.userId,
         message: msg,
         level: level,
@@ -62,6 +64,14 @@ const createNewLog = (source) => {
     return {
         createInfoLog: async(msg = '', additionalInfo = '') => {
             const buildLogPayload = buildPayload(source, msg, 'info', additionalInfo);
+            await registerLog(buildLogPayload);
+        },
+        createDebugLog: async(msg = '', additionalInfo = '') => {
+            const buildLogPayload = buildPayload(source, msg, 'debug', additionalInfo);
+            await registerLog(buildLogPayload);
+        },
+        createWarnLog: async(msg = '', additionalInfo = '') => {
+            const buildLogPayload = buildPayload(source, msg, 'warn', additionalInfo);
             await registerLog(buildLogPayload);
         },
         createErrorLog: async(msg = '', additionalInfo = '') => {
