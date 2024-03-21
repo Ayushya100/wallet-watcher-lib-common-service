@@ -37,6 +37,11 @@ const logSchema = new mongoose.Schema(
             headers: Object,
             body: Object
         },
+        responseData: {
+            statusCode: Number,
+            statusMsg: String,
+            response: Object
+        },
         additionalInfo: {
             type: mongoose.Schema.Types.Mixed
         }

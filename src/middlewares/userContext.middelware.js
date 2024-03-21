@@ -10,6 +10,11 @@ const userContext = (req, res, next) => {
     currentUserContext.headers = req.params;
     currentUserContext.body = req.body;
     currentUserContext.logSessionId = 'LSI' + uuidv4();
+
+    if (currentUserContext.body.password) {
+        delete currentUserContext.body.password;
+    }
+
     next();
 }
 

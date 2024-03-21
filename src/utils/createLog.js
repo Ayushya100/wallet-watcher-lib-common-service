@@ -1,6 +1,7 @@
 'use strict';
 
 import { registerLog } from '../db/dbQueries.js';
+import { responseCodes, responseMessage } from '../assets/response/response-codes.js';
 
 let currentUserContext = {};
 
@@ -20,8 +21,20 @@ const getCurrentDateTime = () => {
     return todayDate;
 }
 
-const buildPayload = (source, msg, level, additionalInfo) => {
-    const logPayload = {
+const buildResponse = (response) => {
+    if (response) {
+        return {
+            statusCode: responseCodes[response.resType],
+            statusMsg: response.resMsg + ' - ' + responseMessage[response.resType],
+            response: response.data
+        };
+    }
+
+    return null;
+}
+
+const buildPayload = (source, msg, level, response, additionalInfo) => {
+    let logPayload = {
         logSessionId: currentUserContext.logSessionId,
         userId: currentUserContext.userId,
         message: msg,
@@ -34,14 +47,15 @@ const buildPayload = (source, msg, level, additionalInfo) => {
             headers: currentUserContext.headers,
             body: currentUserContext.body
         },
+        responseData: buildResponse(response),
         additionalInfo: additionalInfo
     }
 
     return logPayload;
 }
 
-const buildCustomPayload = (source, userId, msg, level, additionalInfo, headers, body) => {
-    const logPayload = {
+const buildCustomPayload = (source, userId, msg, level, response, additionalInfo, headers, body) => {
+    let logPayload = {
         logSessionId: currentUserContext.logSessionId,
         userId: userId || currentUserContext.userId,
         message: msg,
@@ -54,6 +68,7 @@ const buildCustomPayload = (source, userId, msg, level, additionalInfo, headers,
             headers: headers,
             body: body
         },
+        responseData: buildResponse(response),
         additionalInfo: additionalInfo
     }
 
@@ -62,24 +77,24 @@ const buildCustomPayload = (source, userId, msg, level, additionalInfo, headers,
 
 const createNewLog = (source) => {
     return {
-        createInfoLog: async(msg = '', additionalInfo = '') => {
-            const buildLogPayload = buildPayload(source, msg, 'info', additionalInfo);
+        createInfoLog: async(msg = '', response = null, additionalInfo = '') => {
+            const buildLogPayload = buildPayload(source, msg, 'info', response, additionalInfo);
             await registerLog(buildLogPayload);
         },
-        createDebugLog: async(msg = '', additionalInfo = '') => {
-            const buildLogPayload = buildPayload(source, msg, 'debug', additionalInfo);
+        createDebugLog: async(msg = '', response = null, additionalInfo = '') => {
+            const buildLogPayload = buildPayload(source, msg, 'debug', response, additionalInfo);
             await registerLog(buildLogPayload);
         },
-        createWarnLog: async(msg = '', additionalInfo = '') => {
-            const buildLogPayload = buildPayload(source, msg, 'warn', additionalInfo);
+        createWarnLog: async(msg = '', response = null, additionalInfo = '') => {
+            const buildLogPayload = buildPayload(source, msg, 'warn', response, additionalInfo);
             await registerLog(buildLogPayload);
         },
-        createErrorLog: async(msg = '', additionalInfo = '') => {
-            const buildLogPayload = buildPayload(source, msg, 'error', additionalInfo);
+        createErrorLog: async(msg = '', response = null, additionalInfo = '') => {
+            const buildLogPayload = buildPayload(source, msg, 'error', response, additionalInfo);
             await registerLog(buildLogPayload);
         },
-        createCustomLog: async(msg = '', level, additionalInfo = '') => {
-            const buildLogPayload = buildCustomPayload(source, userId, msg, level, additionalInfo, headers = {}, body = {});
+        createCustomLog: async(userId = null, msg = '', level, response = null, additionalInfo = '') => {
+            const buildLogPayload = buildCustomPayload(source, userId, msg, level, response, additionalInfo, headers = {}, body = {});
             await registerLog(buildLogPayload);
         }
     }
