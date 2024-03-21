@@ -3,7 +3,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { currentUserContext } from '../utils/index.js';
 
-const userContext = (req, res, next) => {
+const registerUser = (req, res, next) => {
     currentUserContext.method = req.method;
     currentUserContext.url = req.originalUrl;
     currentUserContext.userId = req.params?.userId || req.body?.userId;
@@ -18,4 +18,4 @@ const userContext = (req, res, next) => {
     next();
 }
 
-export default userContext;
+export default registerUser;

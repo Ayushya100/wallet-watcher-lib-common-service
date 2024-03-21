@@ -33,7 +33,7 @@ import {
 import {
     verifyToken,
     errorHandler,
-    userContext
+    registerUser
 } from './src/middlewares/index.js';
 import dbConnection from './src/db/dbConnection.js';
 
@@ -61,6 +61,6 @@ export {
     LogsModel,
     verifyToken,
     errorHandler,
-    userContext,
+    registerUser,
     dbConnection
 };

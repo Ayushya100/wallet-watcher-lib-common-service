@@ -17,6 +17,10 @@ const dashboardSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        subCategory: {
+            type: String,
+            required: true
+        },
         type: {
             type: String,
             required: true,
