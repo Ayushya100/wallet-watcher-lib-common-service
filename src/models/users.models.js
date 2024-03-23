@@ -60,27 +60,31 @@ const userSchema = new mongoose.Schema(
             trim: true
         },
         lastLogin: {
-            type: Date,
-            required: false
+            type: Date
         },
         loginCount: {
             type: Number,
-            default: 0,
-            required: false
+            default: 0
         },
         isVerified: {
             type: Boolean,
-            default: false,
-            required: true
+            default: false
         },
         isDeleted: {
             type: Boolean,
-            default: false,
-            required: true
+            default: false
         },
         verificationCode: {
-            type: String,
-            required: false
+            type: String
+        },
+        verificationCodeExpiry: {
+            type: Date
+        },
+        forgotPasswordToken: {
+            type: String
+        },
+        forgotPasswordTokenExpiry: {
+            type: Date
         },
         refreshToken: {
             type: String,
@@ -88,24 +92,20 @@ const userSchema = new mongoose.Schema(
         },
         createdOn: {
             type: Date,
-            required: true,
             default: Date.now()
         },
         createdBy: {
             type: String,
             default: 'SYSTEM',
-            required: false,
             trim: true
         },
         modifiedOn: {
             type: Date,
-            required: true,
             default: Date.now()
         },
         modifiedBy: {
             type: String,
             default: 'SYSTEM',
-            required: false,
             trim: true
         }
     }
