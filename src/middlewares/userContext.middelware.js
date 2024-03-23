@@ -8,7 +8,7 @@ const registerUser = (req, res, next) => {
     currentUserContext.url = req.originalUrl;
     currentUserContext.userId = req.params?.userId || req.body?.userId;
     currentUserContext.headers = req.params;
-    currentUserContext.body = req.body;
+    currentUserContext.body = {...req.body};
     currentUserContext.logSessionId = 'LSI' + uuidv4();
 
     if (currentUserContext.body.password) {
