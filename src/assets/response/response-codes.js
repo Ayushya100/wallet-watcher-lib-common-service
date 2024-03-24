@@ -25,6 +25,7 @@ const responseCodes = {
     TOO_MANY_REQUESTS: 429,
     INTERNAL_SERVER_ERROR: 500,
     BAD_GATEWAY: 502,
+    SERVICE_UNAVAILABLE: 503,
     GETWAY_TIMEOUT: 504
 };
 
@@ -53,6 +54,7 @@ const responseMessage = {
     TOO_MANY_REQUESTS: 'The user has sent too many requests in a given amount of time.',
     INTERNAL_SERVER_ERROR: 'An Internal Server Error occurred while processing the request.',
     BAD_GATEWAY: 'Bad Gateway. The server could not complete the request.',
+    SERVICE_UNAVAILABLE: 'Service Unavailable.',
     GETWAY_TIMEOUT: 'Gateway Timeout.'
 };
 
