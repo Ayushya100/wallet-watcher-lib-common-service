@@ -6,7 +6,7 @@ import { currentUserContext } from '../utils/index.js';
 const registerUser = (req, res, next) => {
     currentUserContext.method = req.method;
     currentUserContext.url = req.originalUrl;
-    currentUserContext.userId = req.params?.userId || req.body?.userId;
+    currentUserContext.userId = req.params?.userId;
     currentUserContext.headers = req.params;
     currentUserContext.body = {...req.body};
     currentUserContext.logSessionId = 'LSI' + uuidv4();
