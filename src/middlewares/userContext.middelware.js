@@ -14,6 +14,14 @@ const registerUser = (req, res, next) => {
     if (currentUserContext.body.password) {
         delete currentUserContext.body.password;
     }
+    
+    if (currentUserContext.body.oldPassword) {
+        delete currentUserContext.body.oldPassword;
+    }
+
+    if (currentUserContext.body.newPassword) {
+        delete currentUserContext.body.newPassword;
+    }
 
     next();
 }
